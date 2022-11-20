@@ -5,5 +5,5 @@
   UseTab: AlignWithSpaces,
   SpaceAfterCStyleCast: true,
   AlignAfterOpenBracket: BlockIndent,
-  ContinuationIndentWidth: 2
+  ContinuationIndentWidth: 2,
 }
