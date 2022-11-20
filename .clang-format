@@ -4,6 +4,8 @@
   IndentWidth: 2,
   UseTab: AlignWithSpaces,
   SpaceAfterCStyleCast: true,
+  AllowShortBlocksOnASingleLine: Empty,
+  AllowShortFunctionsOnASingleLine: Empty,
   AlignAfterOpenBracket: BlockIndent,
   ContinuationIndentWidth: 2,
 }
