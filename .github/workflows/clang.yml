@@ -2,10 +2,8 @@ name: clang-format
 
 on:
   push:
-    paths:
-    - '**.cpp'
-    - '**.h'
-    - '**.hpp'
+    branches:
+      - main
 
 jobs:
   format:
