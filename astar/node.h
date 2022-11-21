@@ -1,26 +1,31 @@
-#ifndef NODE_H_
-#define NODE_H_
+#ifndef __NODE_H_
+#define __NODE_H_
 
 #include <vector>
 
+enum class NodeType {
+	Empty = '.',
+	Wall = '#',
+	Start = 'S',
+	Goal = 'G',
+};
+
 class Node {
  public:
+	NodeType type;
+	std::vector<Node*> neighbours;
 	int x;
 	int y;
-	std::vector<Node*> neighbours;
 
-	Node(int x, int y) {
-		this->x = x;
-		this->y = y;
-	}
+	Node(NodeType type, int x, int y, int cols);
+	Node() = default;
 
-	void addNeighbour(Node* n) {
-		neighbours.push_back(n);
-	}
+	void addNeighbour(Node* n);
 
-	int key() {
-		return x * 10 + y;
-	}
+	int getKey();
+
+ private:
+	int cols;
 };
 
 #endif /* NODE_H_ */
