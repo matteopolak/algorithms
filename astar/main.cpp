@@ -73,11 +73,6 @@ std::vector<Node*> aStar(Node* root, Grid grid) {
 		for (int i = 0; i < current->neighbours.size(); i++) {
 			Node* neighbour = current->neighbours[i];
 
-			// if the neighbour is not in the open list, add it
-			if (std::find(open.begin(), open.end(), neighbour) == open.end()) {
-				open.push_back(neighbour);
-			}
-
 			// calculate the tentative g score for the neighbour
 			int tentativeGScore = gScore[current->getKey()] + 1;
 
@@ -94,8 +89,12 @@ std::vector<Node*> aStar(Node* root, Grid grid) {
 			gScore[neighbour->getKey()] = tentativeGScore;
 
 			// set the neighbour's f score to the g score + the heuristic value
-			fScore[neighbour->getKey()] =
-				gScore[neighbour->getKey()] + grid.heuristic(neighbour);
+			fScore[neighbour->getKey()] = tentativeGScore + grid.heuristic(neighbour);
+
+			// if the neighbour is not in the open list, add it
+			if (std::find(open.begin(), open.end(), neighbour) == open.end()) {
+				open.push_back(neighbour);
+			}
 		}
 	}
 
