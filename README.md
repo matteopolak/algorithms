@@ -5,7 +5,7 @@
 
 This repository contains a collection of common algorithms implemented in C++.
 
-## Input format `astar`
+## Input format for `astar`
 
 ```bash
 gcc *.cpp -lstdc++ -o astar.exe
